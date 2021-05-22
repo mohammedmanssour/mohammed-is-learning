@@ -1,10 +1,13 @@
-import { createServer, IncomingMessage, Server, ServerResponse } from 'http';
+import { createServer, IncomingMessage, ServerResponse } from 'http';
 import { StringDecoder } from 'string_decoder';
+import RouterContract from './contracts/RouterContract';
 import Request from './http/Request';
 
 export default class Application {
   private req: Request;
   private res: ServerResponse;
+
+  private router: RouterContract;
 
   /**
    * handle the server creation boot the application
@@ -30,7 +33,20 @@ export default class Application {
    * boot up application with the parsed request and response
    */
   private boot() {
-    this.res.end('Hello World');
+    if (this.router) {
+      this.router.run(this.req, this.res);
+      return;
+    }
+
+    this.res.end('🚨 The app router was not intialized.');
+  }
+
+  /**
+   * set application router
+   */
+  public setRouter(router: RouterContract): Application {
+    this.router = router;
+    return this;
   }
 
   /**
