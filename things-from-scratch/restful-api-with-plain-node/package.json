@@ -1,0 +1,22 @@
+{
+  "name": "restful-api-with-plain-node",
+  "version": "1.0.0",
+  "description": "Restful API for monitoring websites. No dependicies.",
+  "main": "dist/index.js",
+  "author": {
+    "name": "Mohammed Manssour",
+    "email": "hello@mohammedmanssour.me",
+    "url": "https://mohammedmanssour.me"
+  },
+  "scripts": {
+    "watch": "tsc --watch",
+    "start": "node dist/index.js"
+  },
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "@types/node": "^15.6.0",
+    "prettier": "^2.3.0",
+    "typescript": "^4.2.4"
+  }
+}
