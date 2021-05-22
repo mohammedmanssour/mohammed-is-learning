@@ -1,9 +1,5 @@
-import http, { ServerResponse } from 'http';
+import Application from './Application';
 
-const server = http.createServer((_, res: ServerResponse) => {
-  res.end('Hello World');
-});
+const app = new Application();
 
-server.listen('3000', () =>
-  console.log('✅ server is running and listening to port :3000')
-);
+app.run();
