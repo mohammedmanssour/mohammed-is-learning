@@ -1,5 +1,6 @@
 import { IncomingMessage, IncomingHttpHeaders } from 'http';
 import { URL, URLSearchParams } from 'url';
+import IParams from '../router/IParams';
 
 export default class Request {
   original: IncomingMessage;
@@ -9,6 +10,9 @@ export default class Request {
 
   // url query string
   query: URLSearchParams;
+
+  // url params
+  params: IParams;
 
   constructor() {}
 
@@ -31,11 +35,15 @@ export default class Request {
   }
 
   /**
-   * get data from query string or request body
+   * get data from url params, query string or request body
    *
-   * priority is for query string
+   * priority is for params and then comes query strings
    */
   get(key: string, defaultValue: any = null): any {
+    if (this.params[key]) {
+      return this.params;
+    }
+
     if (this.query.has(key)) {
       return this.query.get(key);
     }
@@ -50,6 +58,7 @@ export default class Request {
    */
   public capture(req: IncomingMessage): Request {
     this.original = req;
+    this.params = {};
     this.extractURLInformation();
 
     return this;
@@ -63,8 +72,15 @@ export default class Request {
     var baseURL = 'http://' + this.host + '/';
     const url = new URL(this.original.url, baseURL);
 
-    this.path = '/' + url.pathname.replace(/\/+|\/$/g, '');
+    this.path = '/' + url.pathname.replace(/^\/|\/$/g, '');
 
     this.query = url.searchParams;
+  }
+
+  /**
+   * setParam set param variable
+   */
+  public setParam(key: string, value: string) {
+    this.params[key] = value;
   }
 }

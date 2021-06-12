@@ -2,10 +2,11 @@ import { createServer, IncomingMessage, ServerResponse } from 'http';
 import { StringDecoder } from 'string_decoder';
 import RouterContract from './contracts/RouterContract';
 import Request from './http/Request';
+import Response from './http/Response';
 
 export default class Application {
   private req: Request;
-  private res: ServerResponse;
+  private res: Response;
 
   private router: RouterContract;
 
@@ -14,7 +15,7 @@ export default class Application {
    */
   private start(req: IncomingMessage, res: ServerResponse) {
     this.req = new Request().capture(req);
-    this.res = res;
+    this.res = new Response(res);
 
     const decoder = new StringDecoder('utf-8');
     let buffer = '';
@@ -38,7 +39,7 @@ export default class Application {
       return;
     }
 
-    this.res.end('🚨 The app router was not intialized.');
+    this.res.setStatusCode(500).send('🚨 The app router was not intialized.');
   }
 
   /**
