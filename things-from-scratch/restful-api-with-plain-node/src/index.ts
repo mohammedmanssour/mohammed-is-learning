@@ -6,8 +6,4 @@ const app = new Application();
 
 const router = new Router();
 
-router.get('/users/{user}/teams/{team}', (req, res, params) => {
-  JsonResponse.from(res).send(params);
-});
-
 app.setRouter(router).run();
