@@ -26,6 +26,8 @@ export default class Application {
     this.req.original.on('end', () => {
       buffer += decoder.end();
 
+      this.req.setBody(buffer);
+
       this.boot();
     });
   }

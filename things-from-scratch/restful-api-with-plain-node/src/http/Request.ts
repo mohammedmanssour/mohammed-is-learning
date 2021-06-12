@@ -14,6 +14,10 @@ export default class Request {
   // url params
   params: IParams;
 
+  body: {
+    [key: string]: any;
+  };
+
   constructor() {}
 
   /**
@@ -41,11 +45,15 @@ export default class Request {
    */
   get(key: string, defaultValue: any = null): any {
     if (this.params[key]) {
-      return this.params;
+      return this.params[key];
     }
 
     if (this.query.has(key)) {
       return this.query.get(key);
+    }
+
+    if (this.body[key]) {
+      return this.body[key];
     }
 
     return defaultValue;
@@ -59,9 +67,19 @@ export default class Request {
   public capture(req: IncomingMessage): Request {
     this.original = req;
     this.params = {};
+    this.body = {};
     this.extractURLInformation();
 
     return this;
+  }
+
+  /**
+   * parseBody parse body
+   */
+  public setBody(body: string) {
+    if (['POST', 'PUT', 'PATCH'].includes(this.method) && body.length > 0) {
+      this.body = JSON.parse(body + '');
+    }
   }
 
   /**
