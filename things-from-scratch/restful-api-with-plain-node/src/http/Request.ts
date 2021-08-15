@@ -77,7 +77,6 @@ export default class Request {
    * parseBody parse body
    */
   public setBody(body: string) {
-    console.log(body, decodeURI(body));
     if (
       ['POST', 'PUT', 'PATCH'].includes(this.method.toUpperCase()) &&
       this.headers['content-type'] === 'application/json' &&
