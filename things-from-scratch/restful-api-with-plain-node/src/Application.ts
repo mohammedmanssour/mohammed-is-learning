@@ -5,43 +5,41 @@ import Request from './http/Request';
 import Response from './http/Response';
 
 export default class Application {
-  private req: Request;
-  private res: Response;
-
   private router: RouterContract;
 
   /**
    * handle the server creation boot the application
    */
   private start(req: IncomingMessage, res: ServerResponse) {
-    this.req = new Request().capture(req);
-    this.res = new Response(res);
+    console.log('new request to ', req.url);
+    const request = new Request().capture(req);
+    const response = new Response(res);
 
     const decoder = new StringDecoder('utf-8');
     let buffer = '';
-    this.req.original.on('data', data => {
+    request.original.on('data', data => {
       buffer += decoder.write(data);
     });
 
-    this.req.original.on('end', () => {
+    request.original.on('end', () => {
       buffer += decoder.end();
 
-      this.req.setBody(buffer);
+      request.setBody(buffer);
 
-      this.boot();
+      this.boot(request, response);
     });
   }
 
   /**
    * boot up application with the parsed request and response
    */
-  private boot() {
+  private boot(request: Request, response: Response) {
     if (this.router) {
-      this.router.run(this.req, this.res);
+      this.router.run(request, response);
       return;
     }
 
-    this.res.setStatusCode(500).send('🚨 The app router was not intialized.');
+    response.setStatusCode(500).send('🚨 The app router was not intialized.');
   }
 
   /**

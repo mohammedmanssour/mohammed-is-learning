@@ -10,7 +10,8 @@ export default class Route {
 
   params: string[];
 
-  regex: RegExp;
+  // regex pattern no the regex itself
+  regex: string;
 
   constructor(method: IMethod, path: string, action: IRouteAction) {
     this.method = method;
@@ -30,7 +31,7 @@ export default class Route {
    * check if request path matches the route path
    */
   matches(req: Request): boolean {
-    const matches = this.regex.exec(req.path);
+    const matches = new RegExp(this.regex, 'g').exec(req.path);
 
     if (!matches) {
       return false;
@@ -55,8 +56,7 @@ export default class Route {
     const regex = new RegExp(/\{(\w+?)\}/g);
     const matches = this.path.match(regex);
     if (!matches || !matches.length) {
-      const pattern = '^' + this.path.replace(/\//g, '\\/') + '$';
-      this.regex = new RegExp(pattern, 'g');
+      this.regex = '^' + this.path.replace(/\//g, '\\/') + '$';
       return;
     }
 
@@ -66,6 +66,6 @@ export default class Route {
     });
 
     let normalize = this.path.replace(/\//g, '\\/');
-    this.regex = RegExp(normalize.replace(regex, '([A-Z0-9]+)'), 'g');
+    this.regex = normalize.replace(regex, '([A-Z0-9]+)');
   }
 }
