@@ -55,7 +55,8 @@ export default class Route {
     const regex = new RegExp(/\{(\w+?)\}/g);
     const matches = this.path.match(regex);
     if (!matches || !matches.length) {
-      this.regex = new RegExp(this.path.replace(/\//g, '\\/'), 'g');
+      const pattern = '^' + this.path.replace(/\//g, '\\/') + '$';
+      this.regex = new RegExp(pattern, 'g');
       return;
     }
 

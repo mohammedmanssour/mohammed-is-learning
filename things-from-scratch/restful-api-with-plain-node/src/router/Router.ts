@@ -12,7 +12,7 @@ import Response from '../http/Response';
 export default class Router implements RouterContract {
   routes: IRoutesMap;
 
-  fallbackAction: IRouteAction;
+  fallbackAction: Route;
 
   constructor() {
     this.routes = {
@@ -79,7 +79,7 @@ export default class Router implements RouterContract {
    * fallback action to be called when no route is found
    */
   public fallback(action: IRouteAction) {
-    this.fallbackAction = action;
+    this.fallbackAction = new Route('ANY', 'any', action);
   }
 
   findRoute(req: Request): Route | undefined {
@@ -95,23 +95,24 @@ export default class Router implements RouterContract {
   /**
    * dispatch route action
    */
-  public dispatch(action: IRouteAction, req: Request, res: Response) {
-    if (typeof action === 'function') {
-      action.call(null, req, res, req.params);
+  public dispatch(route: Route, req: Request, res: Response) {
+    const handler = route.action;
+    if (typeof handler === 'function') {
+      handler.call(null, req, res, req.params);
       return;
     }
 
-    action[1].call(action[0], req, res, req.params);
+    handler[1].call(handler[0], req, res, req.params);
   }
 
   run(req: Request, res: Response) {
     const route = this.findRoute(req);
     if (route) {
-      return this.dispatch(route.action, req, res);
+      return this.dispatch(route, req, res);
     }
 
     if (this.fallbackAction) {
-      this.dispatch(this.fallbackAction, req, res);
+      return this.dispatch(this.fallbackAction, req, res);
     }
 
     return new RouteNotFoundException().render(req, res);

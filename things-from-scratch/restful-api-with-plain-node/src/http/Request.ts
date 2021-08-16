@@ -94,7 +94,7 @@ export default class Request {
     var baseURL = 'http://' + this.host + '/';
     const url = new URL(this.original.url, baseURL);
 
-    this.path = '/' + url.pathname.replace(/^\/|\/$/g, '');
+    this.path = url.pathname.replace(/^\/|\/$/g, '');
 
     this.query = url.searchParams;
   }

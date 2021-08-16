@@ -12,4 +12,9 @@ const router = new Router();
 const pingController = new PingController();
 router.get('ping', [pingController, pingController.index]);
 
+router.fallback(function (req, res) {
+  res.setStatusCode(404);
+  res.send('404 not found');
+});
+
 app.setRouter(router).run();
