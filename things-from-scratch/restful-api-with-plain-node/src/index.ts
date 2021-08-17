@@ -1,16 +1,12 @@
 import Application from './Application';
 import Router from './router/Router';
 
-// controllers
-import PingController from './http/controllers/PingController';
+import api from './routes/api';
 
 const app = new Application();
 
 const router = new Router();
-
-// check current app status
-const pingController = new PingController();
-router.get('ping', [pingController, pingController.index]);
+api(router);
 
 router.fallback(function (req, res) {
   res.setStatusCode(404);
