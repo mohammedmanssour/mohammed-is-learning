@@ -10,6 +10,7 @@ const apiRoutes = (router: Router) => {
 
   const usersController = new UsersController();
   router.post('users', [usersController, usersController.store]);
+  router.post('login', [usersController, usersController.attemptLogin]);
 };
 
 export default apiRoutes;

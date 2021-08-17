@@ -5,6 +5,7 @@ import JsonResponse from '../JsonResponse';
 import User from '../../models/User';
 import users from '../../data/Users';
 import UserTransformer from '../transformers/UserTransformer';
+import { hash } from '../../utils/index';
 import JWT from '../../utils/JWT';
 
 export default class UsersController {
@@ -15,7 +16,15 @@ export default class UsersController {
    */
   public store(req: Request, res: Response) {
     //TODO:: add validation
-    const user = User.create(req.body);
+
+    const data = {
+      ...req.body,
+      password: hash(req.get('password')),
+    };
+
+    console.log(data);
+
+    const user = User.create(data);
 
     return JsonResponse.from(res).send({
       meta: {

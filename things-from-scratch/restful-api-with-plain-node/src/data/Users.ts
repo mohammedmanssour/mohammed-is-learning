@@ -1,7 +1,7 @@
 // this file will play as the user database table
 
 import User from '../models/User';
-import { hash } from '../utils';
+import { hash } from '../utils/index';
 import DataModel from './DataModel';
 
 export class Users extends DataModel<User> {
@@ -9,7 +9,7 @@ export class Users extends DataModel<User> {
     const hashed = hash(password);
 
     const entry = Object.entries(this.data).find(
-      ([key, user]) => user.email == email && user.password == hashed
+      ([key, user]) => user.email === email && user.password === hashed
     );
 
     if (!entry) {
