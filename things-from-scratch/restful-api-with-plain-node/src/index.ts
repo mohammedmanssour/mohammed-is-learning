@@ -1,8 +1,6 @@
 import Application from './Application';
 import Router from './router/Router';
 
-import JWT from './utils/JWT';
-
 import api from './routes/api';
 
 const app = new Application();

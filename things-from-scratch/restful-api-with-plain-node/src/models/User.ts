@@ -1,11 +1,12 @@
 import Model from './Model';
-import { uniqueId } from '../utils';
+import { uniqueId, hash } from '../utils';
 
 import users, { Users } from '../data/Users';
 
 export default class User extends Model {
   name: string;
   email: string;
+  password: string;
 
   /**
    * create new User instance
@@ -15,6 +16,7 @@ export default class User extends Model {
     user.id = uniqueId('user-');
     user.email = data.email;
     user.name = data.name;
+    user.password = hash(data.password);
 
     user.save();
     return user;

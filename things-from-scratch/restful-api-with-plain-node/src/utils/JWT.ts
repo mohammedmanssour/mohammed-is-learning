@@ -5,8 +5,6 @@ type Payload = {
 };
 
 export default class JWT {
-  secret = '7c32d31dbdd39f2111da0b1dea59e94f3ed715fd8cdf0ca3ecf354ca1a2e3e30';
-
   get header() {
     return {
       typ: 'JWT',
@@ -15,10 +13,7 @@ export default class JWT {
   }
 
   createSignature(header: string, payload: string): string {
-    return hash(
-      base64UrlEncode(header) + '.' + base64UrlEncode(payload),
-      this.secret
-    );
+    return hash(base64UrlEncode(header) + '.' + base64UrlEncode(payload));
   }
 
   make(payload: Payload): string {

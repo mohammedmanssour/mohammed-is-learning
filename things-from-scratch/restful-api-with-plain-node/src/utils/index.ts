@@ -13,6 +13,8 @@ export const base64UrlDecode = (str: string): string => {
   return Buffer.from(str, 'base64').toString('ascii');
 };
 
-export const hash = (str: string, secret: string): string => {
+export const hash = (str: string): string => {
+  const secret =
+    '7c32d31dbdd39f2111da0b1dea59e94f3ed715fd8cdf0ca3ecf354ca1a2e3e30';
   return crypto.createHmac('sha256', secret).update(str).digest('hex');
 };
