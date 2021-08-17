@@ -1,8 +1,9 @@
 import Model from './Model';
 import { uniqueId } from '../utils';
 
+import users, { Users } from '../data/Users';
+
 export default class User extends Model {
-  id: string;
   name: string;
   email: string;
 
@@ -14,6 +15,12 @@ export default class User extends Model {
     user.id = uniqueId('user-');
     user.email = data.email;
     user.name = data.name;
+
+    user.save();
     return user;
+  }
+
+  public collection(): Users {
+    return users;
   }
 }
