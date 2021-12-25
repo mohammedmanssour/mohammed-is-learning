@@ -4,7 +4,7 @@
 
 I am a Full-stack web developer with +8 years of experience in the field. I love to turn great ideas into beautiful, fully functional experiences. I am passionate about gaming and definitely passionate about backend engineering.
 
-As a Full Stack developer, **PHP** was the language I chose to start with as a backend programming language, supported with a big passion, and very good experience in **Laravel**. I also work with other languages like JS and Go. On the other hand, I am very much into frontend technologies, mostly **React.js, TypeScript**, and CSS for sure.
+As a Full Stack developer, **PHP** was the language I chose to start with as a backend programming language, supported with a big passion, and very good experience in **Laravel**. I also work with other languages like JS and Go. On the other hand, I am very much into frontend technologies, mostly **React.js, TypeScript**, and CSS for sure. For more details [check out my resume](https://github.com/mohammedmanssour/mohammedmanssour/tree/master/cv/Mohammed_Manssour.pdf)
 
 ## How I Work
 
