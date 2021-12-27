@@ -41,7 +41,7 @@ export const workExperience = [
     start: "Jan 2013",
     end: "Jul 2015",
     responsibilities: [
-      "Lead a team of 5 developers to create a fully-features ERP systems.",
+      "worked with a team of 5 developers to create a fully-featured ERP system.",
       "Developed well-functioning web applications and e-commerce stores.",
       "Worked heavily with WordPress API: created themes and plugins for different clients.",
     ],
