@@ -48,7 +48,7 @@ function App() {
               </li>
               <li>
                 <strong className="font-medium">JS:</strong> vanilla JavaScript,
-                Node.js, React.js and TypeScript.
+                TypeScript, Node.js, React.js and Next.js.
               </li>
               <li>
                 <strong className="font-medium">PHP:</strong> vanilla PHP,
