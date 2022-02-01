@@ -19,7 +19,7 @@ module.exports = {
         },
       },
       gridTemplateRows: {
-        '2-60px': 'repeat(2, 60px)',
+        '3-60px': 'repeat(3, 60px)',
       },
     },
   },
