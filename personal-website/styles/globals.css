@@ -5,3 +5,8 @@
 body {
   @apply font-sans bg-dark-800 text-primary;
 }
+
+.timeline [data-arrow='left'],
+.timeline [data-arrow='right'] {
+  display: none;
+}

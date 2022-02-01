@@ -10,7 +10,7 @@ interface ISectionDivider {
 const SectionDivider: FC<ISectionDivider> = ({ from, to, className }) => (
   <div
     className={clsx(
-      'w-96 h-1 block bg-sky-500 bg-gradient-to-r rounded-sm',
+      'w-full sm:w-96 h-1 block bg-sky-500 bg-gradient-to-r rounded-sm',
       from,
       to,
       className

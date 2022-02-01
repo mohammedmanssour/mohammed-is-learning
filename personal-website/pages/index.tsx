@@ -5,6 +5,7 @@ import Head from 'next/head';
 import Hero from '@ui/Hero';
 import Technologies from '@ui/Technologies';
 import BackgroundAnimation from '@ui/BackgroundAnimation';
+import Timeline from '@ui/Timeline';
 
 const Home: NextPage = () => {
   return (
@@ -19,6 +20,7 @@ const Home: NextPage = () => {
         <BackgroundAnimation />
       </div>
       <Technologies />
+      <Timeline />
     </div>
   );
 };

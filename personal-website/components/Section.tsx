@@ -5,11 +5,11 @@ interface ISection {
   className?: string;
 }
 
-const Section: FC<ISection> = ({ children }) => (
+const Section: FC<ISection> = ({ className, children }) => (
   <section
     className={clsx(
       'relative flex flex-col px-4 pt-4 sm:pt-6 md:pt-8',
-      children
+      className
     )}>
     {children}
   </section>
