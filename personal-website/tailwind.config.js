@@ -7,6 +7,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['Space Grotesk', 'sans-serif'],
+        serif: ['Playfair Display', 'serif'],
       },
       colors: {
         primary: '#f2f5f7',
@@ -16,6 +17,9 @@ module.exports = {
           900: '#0F1624',
           800: '#2c304d',
         },
+      },
+      gridTemplateRows: {
+        '2-60px': 'repeat(2, 60px)',
       },
     },
   },
