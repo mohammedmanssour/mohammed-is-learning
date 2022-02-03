@@ -10,3 +10,8 @@ body {
 .timeline [data-arrow='right'] {
   display: none;
 }
+
+.blockquote::before {
+  content: '“';
+  @apply hidden absolute sm:inline text-7xl leading-4 left-[40px] top-[100px];
+}

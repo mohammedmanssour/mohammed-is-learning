@@ -16,6 +16,7 @@ module.exports = {
         dark: {
           900: '#0F1624',
           800: '#2c304d',
+          700: '#31354f',
         },
       },
       gridTemplateRows: {
