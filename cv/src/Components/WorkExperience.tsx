@@ -6,7 +6,7 @@ interface IWorkExperience {
   company: string;
   start: string;
   end: string;
-  responsibilities: string[];
+  responsibilities: ReactNode[];
 }
 
 const WorkExperience: React.FC<IWorkExperience> = ({
@@ -22,7 +22,7 @@ const WorkExperience: React.FC<IWorkExperience> = ({
         {title} <span className="font-normal">@</span> {company}
       </h3>
     </div>
-    <div className="space-x-2 text-gray-600 text-sm">
+    <div className="space-x-2 text-sm text-gray-600">
       <span>{start}</span>
       <span>-</span>
       <span>{end}</span>
