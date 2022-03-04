@@ -52,14 +52,11 @@ model Project {
   status      String?      @default("draft")
   content     String       @default("[{\"type\":\"paragraph\",\"children\":[{\"text\":\"\"}]}]")
   publishDate DateTime?
-  tags        ProjectTag[] @relation("ProjectTag_projects")
+  tags        ProjectTag[] @relation("Project_tags")
 }
 
 model ProjectTag {
-  id         String   @id @default(cuid())
-  name       String   @default("")
-  projects   Project? @relation("ProjectTag_projects", fields: [projectsId], references: [id])
-  projectsId String?  @map("projects")
-
-  @@index([projectsId])
+  id       String    @id @default(cuid())
+  name     String    @default("")
+  projects Project[] @relation("Project_tags")
 }

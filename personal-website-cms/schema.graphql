@@ -414,7 +414,13 @@ input ProjectTagRelateToManyForCreateInput {
 type ProjectTag {
   id: ID!
   name: String
-  projects: Project
+  projects(
+    where: ProjectWhereInput! = {}
+    orderBy: [ProjectOrderByInput!]! = []
+    take: Int
+    skip: Int! = 0
+  ): [Project!]
+  projectsCount(where: ProjectWhereInput! = {}): Int
 }
 
 input ProjectTagWhereUniqueInput {
@@ -427,7 +433,13 @@ input ProjectTagWhereInput {
   NOT: [ProjectTagWhereInput!]
   id: IDFilter
   name: StringFilter
-  projects: ProjectWhereInput
+  projects: ProjectManyRelationFilter
+}
+
+input ProjectManyRelationFilter {
+  every: ProjectWhereInput
+  some: ProjectWhereInput
+  none: ProjectWhereInput
 }
 
 input ProjectTagOrderByInput {
@@ -437,13 +449,14 @@ input ProjectTagOrderByInput {
 
 input ProjectTagUpdateInput {
   name: String
-  projects: ProjectRelateToOneForUpdateInput
+  projects: ProjectRelateToManyForUpdateInput
 }
 
-input ProjectRelateToOneForUpdateInput {
-  create: ProjectCreateInput
-  connect: ProjectWhereUniqueInput
-  disconnect: Boolean
+input ProjectRelateToManyForUpdateInput {
+  disconnect: [ProjectWhereUniqueInput!]
+  set: [ProjectWhereUniqueInput!]
+  create: [ProjectCreateInput!]
+  connect: [ProjectWhereUniqueInput!]
 }
 
 input ProjectTagUpdateArgs {
@@ -453,12 +466,12 @@ input ProjectTagUpdateArgs {
 
 input ProjectTagCreateInput {
   name: String
-  projects: ProjectRelateToOneForCreateInput
+  projects: ProjectRelateToManyForCreateInput
 }
 
-input ProjectRelateToOneForCreateInput {
-  create: ProjectCreateInput
-  connect: ProjectWhereUniqueInput
+input ProjectRelateToManyForCreateInput {
+  create: [ProjectCreateInput!]
+  connect: [ProjectWhereUniqueInput!]
 }
 
 """

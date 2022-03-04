@@ -9,6 +9,7 @@ const ProjectTag = list({
       ui: {
         hideCreate: true,
       },
+      many: true,
     }),
   },
 });
