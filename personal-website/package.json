@@ -8,11 +8,15 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@keystone-6/document-renderer": "^1.0.0",
+    "graphql-hooks": "^5.7.0",
+    "graphql-hooks-memcache": "^2.2.3",
     "next": "12.0.9",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.2",
     "@trendyol-js/react-carousel": "^2.0.1",
     "@types/node": "17.0.13",
     "@types/react": "17.0.38",

@@ -13,9 +13,9 @@ const links = [
     text: 'About',
   },
   {
-    id: 'projects',
-    href: '/projects',
-    text: 'Projects',
+    id: 'packages',
+    href: '/packages',
+    text: 'Open source packages',
   },
   {
     id: 'blog',
