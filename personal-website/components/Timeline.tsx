@@ -1,4 +1,4 @@
-import { FC, useEffect, useRef, useState } from 'react';
+import { FC, ReactNode, useEffect, useRef, useState } from 'react';
 
 import { Carousel, ScrollingCarousel } from '@trendyol-js/react-carousel';
 
@@ -10,7 +10,10 @@ import SectionDivider from './SectionDivider';
 import Keyword from './Keyword';
 import GradientText from './GradientText';
 
-interface ITimeline {}
+interface ITimeline {
+  title?: string;
+  description?: ReactNode;
+}
 
 const timeline = [
   {
@@ -35,21 +38,12 @@ const timeline = [
   },
 ];
 
-const Timeline: FC<ITimeline> = () => {
+const Timeline: FC<ITimeline> = ({ title, description }) => {
   return (
     <Section>
       <SectionDivider />
-      <SectionTitle className="md:pt-10">About Me</SectionTitle>
-      <SectionText className="max-w-4xl">
-        I{"'"}ve been working as a software engineers since{' '}
-        <Keyword>2013</Keyword>, supported with a big passion and a{' '}
-        <Keyword>Computer Engineering background</Keyword>.{' '}
-        <Link href="/about">
-          <a className="text-sky-500 hover:underline hover:text-white">
-            Read more.
-          </a>
-        </Link>
-      </SectionText>
+      <SectionTitle className="md:pt-10">{title}</SectionTitle>
+      {description}
 
       <div className="mt-24 timeline">
         <ScrollingCarousel>
@@ -72,6 +66,22 @@ const Timeline: FC<ITimeline> = () => {
       </div>
     </Section>
   );
+};
+
+Timeline.defaultProps = {
+  title: 'About Me',
+  description: (
+    <SectionText className="max-w-4xl">
+      I{"'"}ve been working as a software engineers since{' '}
+      <Keyword>2013</Keyword>, supported with a big passion and a{' '}
+      <Keyword>Computer Engineering background</Keyword>.{' '}
+      <Link href="/about">
+        <a className="text-sky-500 hover:underline hover:text-white">
+          Read more.
+        </a>
+      </Link>
+    </SectionText>
+  ),
 };
 
 export default Timeline;
