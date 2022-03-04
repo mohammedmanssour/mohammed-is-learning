@@ -25,7 +25,7 @@ const links = [
 ];
 
 const Header: FC<IHeader> = () => (
-  <header className="grid content-center grid-cols-7 gap-2 p-4 pt-8 md:gap-8 grid-rows-3-60px md:grid-rows-1">
+  <header className="relative z-50 grid content-center grid-cols-7 gap-2 p-4 pt-8 md:gap-8 grid-rows-3-60px md:grid-rows-1">
     <h1 className="flex flex-row justify-center w-full col-start-1 col-end-8 row-start-1 row-end-2 space-x-2 text-2xl sm:justify-start sm:col-end-6 md:col-end-3">
       <Link href="/">
         <a>

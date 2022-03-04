@@ -1,5 +1,8 @@
 export default interface Project {
   id: string;
+  featuredImage?: {
+    publicUrl: string;
+  };
   slug: string;
   title: string;
   excerpt: any;
@@ -9,12 +12,15 @@ export default interface Project {
   tags: { name: string }[];
 }
 
-export const ALL_PROJECTS_QUERY = `
+export const ALL_POSTS_QUERY = `
   query {
-    projects(where: { status: { equals: published } }) {
+    posts (where: { status: { equals: published } }) {
       id
       slug
       title
+      featuredImage {
+        publicUrl
+      }
       excerpt
       tags {
         name
@@ -23,12 +29,10 @@ export const ALL_PROJECTS_QUERY = `
   }
 `;
 
-export const allProjectsQueryOptions = (skip = 0) => ({
+export const allPostsQueryOptions = (skip = 0) => ({
   variables: {},
   updateData: (prevResult: any, result: any) => ({
     ...result,
-    projects: prevResult
-      ? [...prevResult.projects, ...result.projects]
-      : result.projects,
+    posts: prevResult ? [...prevResult.posts, ...result.posts] : result.posts,
   }),
 });

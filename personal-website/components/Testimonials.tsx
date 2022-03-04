@@ -54,12 +54,12 @@ const Testimonials: FC<ITestimonials> = () => {
           swiping
           useArrowKeys
           rightArrow={
-            <div className="absolute hidden w-20 text-white transform translate-x-24 sm:block bottom-5 right-1/2">
+            <div className="absolute hidden w-20 text-gray-400 transform translate-x-24 cursor-pointer sm:block bottom-5 right-1/2 hover:text-white">
               Next Testimonial
             </div>
           }
           leftArrow={
-            <div className="hidden sm:block absolute z-50 w-[87px] text-right text-white transform -translate-x-28 bottom-5 left-1/2">
+            <div className="hidden sm:block absolute z-50 w-[87px] text-right text-gray-400 transform -translate-x-28 bottom-5 left-1/2 cursor-pointer hover:text-white">
               Previous Testimonial
             </div>
           }
