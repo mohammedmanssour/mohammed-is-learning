@@ -19,20 +19,15 @@ model User {
 }
 
 model Post {
-  id                      String    @id @default(cuid())
-  featuredImage_filesize  Int?
-  featuredImage_extension String?
-  featuredImage_width     Int?
-  featuredImage_height    Int?
-  featuredImage_mode      String?
-  featuredImage_id        String?
-  title                   String    @default("")
-  slug                    String    @default("")
-  excerpt                 String    @default("")
-  status                  String?   @default("draft")
-  content                 String    @default("[{\"type\":\"paragraph\",\"children\":[{\"text\":\"\"}]}]")
-  publishDate             DateTime?
-  tags                    Tag[]     @relation("Tag_posts")
+  id            String    @id @default(cuid())
+  featuredImage String?
+  title         String    @default("")
+  slug          String    @default("")
+  excerpt       String    @default("")
+  status        String?   @default("draft")
+  content       String    @default("[{\"type\":\"paragraph\",\"children\":[{\"text\":\"\"}]}]")
+  publishDate   DateTime?
+  tags          Tag[]     @relation("Tag_posts")
 }
 
 model Tag {
