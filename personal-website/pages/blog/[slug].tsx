@@ -19,7 +19,7 @@ const PackageDetails: FC<IPackageDetails> = ({ post }) => {
       <Head>
         <title>{post.title} by Mohammed manssour</title>
       </Head>
-      <article className="max-w-4xl py-5 mx-auto space-y-5">
+      <article className="w-full max-w-4xl px-4 py-5 mx-auto space-y-5 overflow-auto">
         <div className="flex py-2 space-x-2 text-gray-500">
           <span>Tags:</span>
           <span className="text-gray-200">
@@ -45,7 +45,7 @@ const PackageDetails: FC<IPackageDetails> = ({ post }) => {
           </div>
         )}
 
-        <div className="max-w-4xl prose prose-xl dark:prose-invert">
+        <div className="prose-invert max-w-4xl prose prose-xl">
           <DocumentRenderer document={post.content.document} />
         </div>
       </article>

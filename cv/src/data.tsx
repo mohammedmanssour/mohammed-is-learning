@@ -1,13 +1,13 @@
 export const workExperience = [
   {
-    title: "Project Lead",
+    title: "Project Lead/Senior Software Engineer",
     company: "MobyMax",
     start: "Mar 2019",
     end: "Present",
     responsibilities: [
       <>
-        <strong className="font-bold underline">Tech stack</strong>: Golang,
-        CakePHP and React
+        <strong className="font-bold underline">Tech stack</strong>: MySQL,
+        Golang, DynamoDB and React
       </>,
       "Consulted with engineering team members to determine develop improvement plans.",
       "Managed development milestones from initial steps through final delivery.",
@@ -22,8 +22,8 @@ export const workExperience = [
     end: "Dec 2018",
     responsibilities: [
       <>
-        <strong className="font-bold underline">Tech stack</strong>: PHP and
-        jQuery
+        <strong className="font-bold underline">Tech stack</strong>: MySQL,
+        Node.js, PHP and jQuery
       </>,
       "Orchestrated efficient large-scale software deployments, including testing features and correcting code.",
       "Delivered performance-driven and user-centric features that met all business requirements.",
@@ -37,8 +37,8 @@ export const workExperience = [
     end: "Nov 2016",
     responsibilities: [
       <>
-        <strong className="font-bold underline">Tech stack</strong>: PHP,
-        Laravel, jQuery and WordPress APIs
+        <strong className="font-bold underline">Tech stack</strong>: MySQL, PHP,
+        Laravel, jQuery
       </>,
       "Designed client-side and server-side architecture.",
       "Developed and managed well-functioning databases and applications.",
@@ -52,8 +52,8 @@ export const workExperience = [
     end: "Jul 2015",
     responsibilities: [
       <>
-        <strong className="font-bold underline">Tech stack</strong>: PHP, PHP,
-        Laravel, jQuery and WordPress APIs
+        <strong className="font-bold underline">Tech stack</strong>: MySQL,
+        Node.js, PHP, Laravel, jQuery and WordPress APIs
       </>,
       "worked with a team of 5 developers to create a fully-featured ERP system.",
       "Developed well-functioning web applications and e-commerce stores.",

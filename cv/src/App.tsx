@@ -40,30 +40,25 @@ function App() {
             <Title>Tech</Title>
             <List>
               <li>
-                <strong className="font-medium">Database:</strong> MySQL and
-                MongoDB. Able to optimize complicated SQL Queries.
+                <strong className="font-medium">Databases:</strong> MySQL and
+                DynamoDB.
               </li>
               <li>
-                <strong className="font-medium">Golang</strong>
-              </li>
-              <li>
-                <strong className="font-medium">JS:</strong> vanilla JavaScript,
+                <span className="font-medium underline">JavaScript</span>,
                 TypeScript, Node.js, React.js and Next.js.
               </li>
               <li>
-                <strong className="font-medium">PHP:</strong> vanilla PHP,
-                Laravel, and CakePHP.
+                <span>Automated Testing: </span>
+                <span className="font-medium">
+                  bug-free development with the TDD approach
+                </span>
               </li>
               <li>
-                <strong className="font-medium">Elasticsearch</strong>
+                <span>DevOps:</span> <span className="font-medium">Docker</span>
+                .
               </li>
               <li>
-                <strong className="font-medium">Automated Testing:</strong>{" "}
-                proficient with the TDD approach
-              </li>
-              <li>
-                <strong className="font-medium">DevOps:</strong> Docker and
-                Kubernetes
+                <strong className="font-medium">Golang</strong>
               </li>
             </List>
           </div>
