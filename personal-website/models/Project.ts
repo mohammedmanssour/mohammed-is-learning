@@ -11,7 +11,7 @@ export default interface Project {
 
 export const ALL_PROJECTS_QUERY = `
   query {
-    projects(where: { status: { equals: published } }) {
+    projects(where: { status: { equals: published } }, orderBy: {publishDate: desc}) {
       id
       slug
       title

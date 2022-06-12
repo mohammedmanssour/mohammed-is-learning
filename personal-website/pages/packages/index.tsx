@@ -26,17 +26,17 @@ const Projects: FC<IProjects> = ({ projects }) => {
         <title>Open source packages | Mohammed Manssour</title>
       </Head>
       <div className="py-16 my-10 text-4xl font-bold text-center border-t border-b border-gray-700">
-        Open source packages
+        Open source
       </div>
       <Section className="max-w-4xl mx-auto space-y-20">
         {projects.projects.map(project => (
           <article key={project.id} className="py-5 space-y-5">
-            <h1 className="w-full text-2xl font-medium text-center text-white hover:underline">
+            <h1 className="hover:underline w-full text-2xl font-medium text-center text-white">
               <Link href={`/packages/${project.slug}`}>
                 <a>{project.title}</a>
               </Link>
             </h1>
-            <div className="flex py-2 space-x-2 text-gray-500 border-gray-700 border-y">
+            <div className="border-y flex py-2 space-x-2 text-gray-500 border-gray-700">
               <span>Tags:</span>
               <span className="text-gray-200">
                 {project.tags
